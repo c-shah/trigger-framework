@@ -1,5 +1,5 @@
 /**
-* @author Hari Krishnan
+* @author Chintan Shah
 * @date 07/17/2013
 * @description This class extends the TriggerDispatcherBase to provide the dispatching functionality for the trigger actions 
 *				on the Account object. The event handlers support allowing and preventing actions for reentrant scenarios. 
@@ -14,7 +14,7 @@ public class AccountTriggerDispatcher extends TriggerDispatcherBase {
 	private static Boolean isAfterUpdateProcessing = false; 
 	
 	/** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/17/2013
 	* @description Called by the trigger framework to carry out the actions before the records are inserted. If there is an
 	*				existing call running on the same context, the rentrant call will utilize the handler that was created
@@ -31,7 +31,7 @@ public class AccountTriggerDispatcher extends TriggerDispatcherBase {
 	}
 	
 	/** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 06/20/2013
 	* @description Called by the trigger framework to carry out the actions before the records are updated. If there is an
 	*				existing call running on the same context, the rentrant call will utilize the handler that was created
@@ -48,7 +48,7 @@ public class AccountTriggerDispatcher extends TriggerDispatcherBase {
 	}
 
 	/** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/17/2013
 	* @description Called by the trigger framework to carry out the actions after the record(s) are created. If there is an
 	*				existing call running on the same context, the rentrant call will utilize the handler that was created
@@ -65,7 +65,7 @@ public class AccountTriggerDispatcher extends TriggerDispatcherBase {
 	}
 
 	/** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/17/2013
 	* @description Called by the trigger framework to carry out the actions after the records are updated. If there is an
 	*				existing call running on the same context, the rentrant call will utilize the handler that was created

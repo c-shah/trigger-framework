@@ -1,5 +1,5 @@
 /**
-* @author Hari Krishnan
+* @author Chintan Shah
 * @date 07/16/2013
 * @description This class implements the ITriggerHandler to provide abstract/virtual methods for the interface methods
 *				and so that the trigger handlers need to implement only the method that they have to. The only exception
@@ -9,7 +9,7 @@ public abstract class TriggerHandlerBase implements ITriggerHandler {
 	protected Map<Id, SObject> sObjectsToUpdate = new Map<Id, SObject>();
 	
 	/** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/16/2013
 	* @description Called for the first time in the execution context. The trigger handlers need to implement
 	*				this method.
@@ -18,7 +18,7 @@ public abstract class TriggerHandlerBase implements ITriggerHandler {
 	public abstract void mainEntry(TriggerParameters tp);
 	
 	/** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/16/2013
 	* @description Called for the subsequent times in the same execution context. The trigger handlers can chose
 	*				to ignore if they don't need the reentrant feature.
@@ -29,7 +29,7 @@ public abstract class TriggerHandlerBase implements ITriggerHandler {
 	}
 	
 	/** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 06/20/2013
 	* @description Updates the objects, if any.
 	*/

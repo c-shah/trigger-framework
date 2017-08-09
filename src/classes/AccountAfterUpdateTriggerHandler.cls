@@ -8,7 +8,7 @@ public class AccountAfterUpdateTriggerHandler extends TriggerHandlerBase {
 		for(Account acct : listNewAccounts) {
 			Account newAccount = new Account();
 			newAccount.Id = acct.Id;
-			newAccount.Name = acct.Name + ' updated.';
+			//newAccount.firstName = acct.firstName;
 			acctsToBeUpdated.add(newAccount);
 		}
 		update acctsToBeUpdated;

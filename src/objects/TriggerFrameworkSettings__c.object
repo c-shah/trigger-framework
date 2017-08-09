@@ -4,10 +4,10 @@
     <description>Settings to enable/disable trigger framework</description>
     <enableFeeds>false</enableFeeds>
     <fields>
-        <fullName>AccountTriggersDisabled__c</fullName>
+        <fullName>AccountTriggerDisabled__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>AccountTriggersDisabled</label>
+        <label>AccountTriggerDisabled</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>

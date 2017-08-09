@@ -1,5 +1,5 @@
 /**
-* @author Hari Krishnan
+* @author Chintan Shah
 * @date 07/17/2013
 * @description This factory creates the correct dispatcher and dispatches the trigger event(s) to the appropriate 
 *				event handler(s). The dispatchers are automatically created using the Type API, hence dispatcher 
@@ -8,7 +8,7 @@
 public with sharing class TriggerFactory
 {
     /** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/17/2013
 	* @description Creates the appropriate dispatcher and dispatches the trigger event to the dispatcher's event handler method.
 	* @param Schema.sObjectType Object type to process (SObject.sObjectType)
@@ -18,11 +18,16 @@ public with sharing class TriggerFactory
         ITriggerDispatcher dispatcher = getTriggerDispatcher(soType);
         if (dispatcher == null)
             throw new TriggerException('No Trigger dispatcher registered for Object Type: ' + soType);
-        execute(dispatcher);
+        Boolean isTriggerEnabled = TriggerFrameworkUtility.isTriggerExecutionEnabled(soType);
+        if( isTriggerEnabled ) {
+            execute(dispatcher);
+        } else {
+            System.debug(LoggingLevel.WARN, 'Trigger for ' + TriggerFrameworkUtility.getSObjectTypeNameFormatted(soType) + ' is disabled in custom settings .');
+        }
     }
 
     /** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/17/2013
 	* @description Dispatches to the dispatcher's event handlers.
 	* @param ITriggerDispatcher A Trigger dispatcher that dispatches to the appropriate handlers
@@ -56,7 +61,7 @@ public with sharing class TriggerFactory
     } 
 
     /** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/17/2013
 	* @description Gets the appropriate dispatcher based on the SObject. It constructs the instance of the dispatcher
 	*				dynamically using the Type API. The name of the dispatcher has to follow this format:

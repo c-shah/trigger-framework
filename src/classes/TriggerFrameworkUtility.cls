@@ -1,5 +1,5 @@
 /**
-* @author Hari Krishnan
+* @author Chintan Shah
 * @date 07/16/2013
 * @description This class has helper methods.
 */
@@ -7,7 +7,7 @@
 public with sharing class TriggerFrameworkUtility {
 	
 	/**
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/16/2013
 	* @description Gets the type name of the SObject.
 	* @param SObject The SObject for which the name to be obtained.
@@ -15,6 +15,19 @@ public with sharing class TriggerFrameworkUtility {
 	*/
 	public static String getSObjectTypeName(SObject so) {
 		return so.getSObjectType().getDescribe().getName();
+	}
+
+	/**
+	 * get formatted name : remove __c if it is there
+	 */
+	public static String getSObjectTypeNameFormatted(Schema.sObjectType soType) {
+		String originalTypeName = soType.getDescribe().getName();
+		String formattedName = originalTypeName;
+		if (originalTypeName.toLowerCase().endsWith('__c')) {
+			Integer index = originalTypeName.toLowerCase().indexOf('__c');
+			formattedName = originalTypeName.substring(0, index);
+		}
+		return formattedName;
 	}
 
 	/**
@@ -30,16 +43,14 @@ public with sharing class TriggerFrameworkUtility {
 	 * You can add <<sObjectType>>TriggerDisabled custom setting under TriggerFrameworkSettings__c, and that setting will be dynamically be read for
 	 * that sObject for a given user/profile/org.
 	 */
-	public static Boolean isTriggerExecutionEnabled(SObject so) {
-		String sObjectName = getSObjectTypeName(so);
+	public static Boolean isTriggerExecutionEnabled(Schema.sObjectType soType) {
+		String sObjectName = getSObjectTypeNameFormatted(soType);
 		if( fieldExists( 'TriggerFrameworkSettings__c', 'AllTriggersDisabled__c') ) {
-			System.debug(' TriggerFrameworkSettings__c.AllTriggersDisabled__c ' + TriggerFrameworkSettings__c.getInstance().get('AllTriggersDisabled__c') );
 			Boolean allTriggersDisabled = (Boolean) TriggerFrameworkSettings__c.getInstance().get('AllTriggersDisabled__c');
 			if( allTriggersDisabled == null || allTriggersDisabled == false ) {
-				if( fieldExists( 'TriggerFrameworkSettings__c', sObjectName + 'TriggersDisabled__c') ) {
-					System.debug(' TriggerFrameworkSettings__c.' + sObjectName + 'TriggersDisabled__c ' + ( TriggerFrameworkSettings__c.getInstance().get(sObjectName + 'TriggersDisabled__c') ) );
-					Boolean sObjectTriggersDisabled = (Boolean) TriggerFrameworkSettings__c.getInstance().get(sObjectName + 'TriggersDisabled__c');
-					if( sObjectTriggersDisabled == true ) {
+				if( fieldExists( 'TriggerFrameworkSettings__c', sObjectName + 'TriggerDisabled__c') ) {
+					Boolean sObjectTriggerDisabled = (Boolean) TriggerFrameworkSettings__c.getInstance().get(sObjectName + 'TriggerDisabled__c');
+					if( sObjectTriggerDisabled == true ) {
 						return false;
 					}
 				}

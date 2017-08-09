@@ -1,5 +1,5 @@
 /**
-* @author Hari Krishnan
+* @author Chintan Shah
 * @date 07/16/2013
 * @description This class implements the ITriggerDispatcher and acts as an adapter to avoid implementing all the 
 *				ITriggerDispatcher methods.
@@ -17,7 +17,7 @@ public virtual class TriggerDispatcherBase implements ITriggerDispatcher {
 
 	
     /** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/16/2013
 	* @description This method is called prior to execution of a before trigger event. If you want 
 	*				to load any lookup data or cache the data, then this is the place that you need 
@@ -26,35 +26,35 @@ public virtual class TriggerDispatcherBase implements ITriggerDispatcher {
     public virtual void bulkBefore() {}
 
     /** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/16/2013
 	* @description This method is called prior to execution of an after trigger event. 
 	*/
     public virtual void bulkAfter() {}
 
     /** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/16/2013
 	* @description This method is called for records to be inserted during a BEFORE trigger.
 	*/
     public virtual void beforeInsert(TriggerParameters tp) {}
 
     /** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/16/2013
 	* @description This method is called for records to be updated during a BEFORE trigger.
 	*/
     public virtual void beforeUpdate(TriggerParameters tp) {}
 
     /** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/16/2013
 	* @description This method is called for records to be deleted during a BEFORE trigger.
 	*/
     public virtual void beforeDelete(TriggerParameters tp) {}
 
     /** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/16/2013
 	* @description This method is called for records inserted during an AFTER trigger. Always put field validation 
 	*				in the 'After' methods in case another trigger has modified any values. The record is 'read only' 
@@ -63,21 +63,21 @@ public virtual class TriggerDispatcherBase implements ITriggerDispatcher {
     public virtual void afterInsert(TriggerParameters tp) {} 
 
     /** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/16/2013
 	* @description This method is called iteratively for each record updated during an AFTER trigger.
 	*/
     public virtual void afterUpdate(TriggerParameters tp) {}
 
     /** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/16/2013
 	* @description This method is called iteratively for each record deleted during an AFTER trigger.
 	*/
     public virtual void afterDelete(TriggerParameters tp) {}
     
     /** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 07/16/2013
 	* @description This method is called prior to execution of a AFTER UNDELETE trigger. 
 	*/
@@ -86,7 +86,7 @@ public virtual class TriggerDispatcherBase implements ITriggerDispatcher {
     public virtual void andFinally() {}
     
     /** 
-	* @author Hari Krishnan
+	* @author Chintan Shah
 	* @date 06/20/2013
 	* @description Called by the event handlers. If this is the first call in the context, then this method will create a new 
 	*				instance of the appropriate handler and execute the mainEntry method. If there is an existing call runing 

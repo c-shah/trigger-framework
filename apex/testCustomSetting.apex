@@ -3,3 +3,5 @@ System.debug( ' a ' + a );
 
 Boolean b = TriggerFrameworkUtility.isTriggerExecutionEnabled(a);
 System.debug(' execution enabled : ' + b );
+
+Intervention__c intervention = new Intervention__c('')
