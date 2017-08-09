@@ -18,4 +18,4 @@ added hierchical trigger kill switch to stop processing trigger logic.
  this is false by default. If you need to disable all triggers, you can just check this checkbox. and all triggers will be disabled for a given user/profile/org
 
   We can also enable/disable trigger on individual sObject.  
-  You can add <<sObjectType>>TriggerDisabled custom setting under TriggerFrameworkSettings__c, and that setting will be dynamically be read for that sObject for a given user/profile/org.
+  You can add <sObjectType>TriggerDisabled (e.g. AccountTriggerDisabled, or Test__cTriggerDisabled) custom setting under TriggerFrameworkSettings__c, and that setting will be dynamically be read for that sObject for a given user/profile/org.
